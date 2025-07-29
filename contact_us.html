@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bharat Suvidha - Contact Us</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa; /* Light background for the page */
+        }
+        /* Custom styles for the "Why Us" section's scattered elements (retained for consistency if needed elsewhere) */
+        .why-us-bubble {
+            background-color: #ffc107; /* Orange-yellow */
+            color: #1E4070; /* Dark blue */
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px; /* Fully rounded */
+            font-weight: 600;
+            text-align: center;
+            white-space: nowrap;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: absolute;
+        }
+        .why-us-container {
+            position: relative;
+            min-height: 400px; /* Adjust as needed */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden; /* Hide overflow for positioned elements */
+        }
+        /* Specific positioning for bubbles (adjust as needed for responsiveness) */
+        .bubble-1 { top: 10%; left: 15%; transform: rotate(-5deg); }
+        .bubble-2 { top: 5%; right: 20%; transform: rotate(10deg); }
+        .bubble-3 { top: 20%; left: 40%; transform: rotate(5deg); }
+        .bubble-4 { bottom: 10%; left: 10%; transform: rotate(7deg); }
+        .bubble-5 { bottom: 5%; right: 15%; transform: rotate(-12deg); }
+        .bubble-6 { bottom: 20%; left: 30%; transform: rotate(-8deg); }
+        .bubble-7 { top: 30%; left: 5%; transform: rotate(3deg); }
+        .bubble-8 { top: 40%; right: 5%; transform: rotate(-6deg); }
+
+        /* Custom styles for the step icons (retained for consistency if needed elsewhere) */
+        .step-icon-container {
+            background-color: #e0f2fe; /* Light blue background */
+            border-radius: 50%;
+            padding: 1rem;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .step-icon {
+            color: #1E4070; /* Dark blue icon color */
+            font-size: 2.5rem;
+        }
+        .step-number {
+            color: #1E4070; /* Dark blue */
+            font-size: 3rem;
+            font-weight: 800;
+        }
+
+        /* Testimonial card styling (retained for consistency if needed elsewhere) */
+        .testimonial-card {
+            background-color: white;
+            border-radius: 1.5rem; /* More rounded */
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        /* FAQ accordion styling (retained for consistency if needed elsewhere) */
+        .accordion-header {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #1E4070;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+        .accordion-header:hover {
+            background-color: #f0f8ff;
+        }
+        .accordion-content {
+            background-color: #f0f8ff;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            margin-top: 0.5rem;
+            display: none; /* Hidden by default */
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+            max-height: 0;
+            opacity: 0;
+        }
+        .accordion-content.active {
+            display: block;
+            max-height: 500px; /* Arbitrary large value to allow content to expand */
+            opacity: 1;
+        }
+        .accordion-icon {
+            transition: transform 0.3s ease;
+        }
+        .accordion-header.active .accordion-icon {
+            transform: rotate(45deg); /* Plus to X */
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header Section (Reused from previous page) -->
+    <header class="bg-white shadow-sm py-4">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center mb-4 md:mb-0">
+                <img src="https://placehold.co/40x40/1E4070/ffffff?text=BS" alt="Bharat Suvidha Logo" class="h-10 w-10 mr-3 rounded-full">
+                <div>
+                    <h1 class="text-xl font-bold text-[#1E4070]">BHARAT SUVIDHA</h1>
+                    <p class="text-xs text-gray-600">HELPING INDIANS OVERSEAS</p>
+                </div>
+            </div>
+
+            <!-- Contact Info (visible on larger screens) -->
+            <div class="hidden lg:flex items-center space-x-6 text-sm text-gray-700">
+                <div class="flex items-center">
+                    <i class="fas fa-envelope text-[#1E4070] mr-2"></i>
+                    <span>Email: info@bharatsuvidha.com.au</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-phone-alt text-[#1E4070] mr-2"></i>
+                    <span>Call Us: 03 7049 0081</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <a href="#" class="text-[#1E4070] hover:text-blue-700"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-[#1E4070] hover:text-blue-700"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <!-- Navigation and Start Application Button -->
+            <nav id="main-navigation" class="w-full md:w-auto flex-col md:flex-row items-center md:space-x-6 text-lg font-medium hidden md:flex">
+                    <ul class="flex flex-col md:flex-row md:space-x-6 w-full md:w-auto mb-4 md:mb-0">
+                        <li><a href="home.html" class="block py-2 px-3 rounded-md text-gray-700 hover:text-[#1E4070] hover:bg-gray-100 transition-colors">Home</a></li>
+                        <li class="relative group dropdown-parent">
+                            <a href="#" class="block py-2 px-3 rounded-md text-gray-700 hover:text-[#1E4070] hover:bg-gray-100 transition-colors flex items-center dropdown-toggle">
+                                Indian PCC <i class="fas fa-chevron-down ml-1 text-xs dropdown-arrow"></i>
+                            </a>
+                            <!-- Dropdown content -->
+                            <div class="absolute hidden bg-white shadow-lg rounded-md py-2 w-48 z-10 dropdown-menu">
+                                <a href="pcc2.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">PCC for Foreigners</a>
+                                <a href="pcc1.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">PCC for Residents</a>
+                            </div>
+                        </li>
+                        <li class="relative group dropdown-parent">
+                            <a href="#" class="block py-2 px-3 rounded-md text-gray-700 hover:text-[#1E4070] hover:bg-gray-100 transition-colors flex items-center dropdown-toggle">
+                                Indian Passport <i class="fas fa-chevron-down ml-1 text-xs dropdown-arrow"></i>
+                            </a>
+                            <div class="absolute hidden bg-white shadow-lg rounded-md py-2 w-48 z-10 dropdown-menu">
+                                <a href="passport.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Indian Passport</a>
+                                <a href="minor.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Minor Indian Passport Renewal</a>
+                                <a href="newborn.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">New Born Passport</a>
+                                <a href="surender.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Indian Passport Surrender</a>
+                                <a href="lostdamagepassport.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Lost/Damage Indian Passport</a>
+                            </div>
+                        </li>
+                        <li class="relative group dropdown-parent">
+                            <a href="#" class="block py-2 px-3 rounded-md text-gray-700 hover:text-[#1E4070] hover:bg-gray-100 transition-colors flex items-center dropdown-toggle">
+                                OCI Card <i class="fas fa-chevron-down ml-1 text-xs dropdown-arrow"></i>
+                            </a>
+                            <div class="absolute hidden bg-white shadow-lg rounded-md py-2 w-48 z-10 dropdown-menu">
+                                <a href="oci.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Overseas Citizenship of Indian Card</a>
+                                <a href="newoci.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">New OCI Card</a>
+                                <a href="lostdamage.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Lost/Damage OCI Card</a>
+                                <a href="address.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Address-Occupation-changed</a>
+                            </div>
+                        </li>
+                        <li class="relative group dropdown-parent">
+                            <a href="#" class="block py-2 px-3 rounded-md text-gray-700 hover:text-[#1E4070] hover:bg-gray-100 transition-colors flex items-center dropdown-toggle">
+                                Other Services <i class="fas fa-chevron-down ml-1 text-xs dropdown-arrow"></i>
+                            </a>
+                            <div class="absolute hidden bg-white shadow-lg rounded-md py-2 w-48 z-10 dropdown-menu">
+                                <a href="visa.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Visa Services</a>
+                                <a href="attony.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Power of Attorney</a>
+                                <a href="affadivt.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Affidavit Services</a>
+                                <a href="marriage.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Marriage/Birth Certificate</a>
+                                <a href="driving_licence.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Indian Driver License Verification</a>
+                            </div>
+                        </li>
+                        <li><a href="contact_us.html" class="block py-2 px-3 rounded-md text-gray-700 hover:text-[#1E4070] hover:bg-gray-100 transition-colors">Contact Us</a></li>
+                    </ul>
+                    <button class="bg-[#1E4070] text-white px-6 py-2 rounded-full hover:bg-blue-800 transition-colors shadow-md">Start Application</button>
+                </nav>
+            </div>
+        </header>
+
+    <!-- Hero Section - Contact Us -->
+    <section class="bg-gradient-to-r from-blue-50 to-blue-100 py-16 md:py-24">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
+            <div class="md:w-1/2 text-center md:text-left mb-8 md:mb-0">
+                <p class="text-sm font-semibold text-gray-600 mb-2">BHARAT SUVIDHA</p>
+                <h2 class="text-4xl md:text-5xl font-extrabold text-[#1E4070] leading-tight mb-6">
+                    Contact Us
+                </h2>
+                <p class="text-lg text-gray-700 mb-8 max-w-lg mx-auto md:mx-0">
+                    We're here to help! Reach out to us for any queries regarding Indian documentation. Our team is ready to assist you.
+                </p>
+            </div>
+            <div class="md:w-1/2 flex justify-center md:justify-end">
+                <!-- Updated image source for Hero section -->
+                <img src="https://www.bharatsuvidha.com.au/wp-content/uploads/2025/02/Power-of-Attorney-Banner.png" alt="Person on phone" class="rounded-xl shadow-xl max-w-full h-auto">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Information Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <!-- Phone Number Card -->
+            <div class="bg-white p-8 rounded-2xl shadow-md flex flex-col items-center text-center border border-blue-100">
+                <div class="bg-[#1E4070] p-4 rounded-full mb-6">
+                    <i class="fas fa-phone-alt text-white text-4xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-[#1E4070] mb-3">Phone Number</h3>
+                <p class="text-gray-700 text-lg">03 7049 0081</p>
+            </div>
+
+            <!-- Email Address Card -->
+            <div class="bg-white p-8 rounded-2xl shadow-md flex flex-col items-center text-center border border-blue-100">
+                <div class="bg-[#1E4070] p-4 rounded-full mb-6">
+                    <i class="fas fa-envelope text-white text-4xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-[#1E4070] mb-3">Email Address</h3>
+                <p class="text-gray-700 text-lg">info@bharatsuvidha.com.au</p>
+            </div>
+
+            <!-- Hours of Operation Card -->
+            <div class="bg-white p-8 rounded-2xl shadow-md flex flex-col items-center text-center border border-blue-100">
+                <div class="bg-[#1E4070] p-4 rounded-full mb-6">
+                    <i class="fas fa-clock text-white text-4xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-[#1E4070] mb-3">Everyday</h3>
+                <p class="text-gray-700 text-lg">Mon-Fri: 10AM - 7PM</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 flex flex-col lg:flex-row items-center justify-between">
+            <div class="lg:w-1/2 flex justify-center lg:justify-start mb-8 lg:mb-0">
+                <!-- Updated image source for Contact Form section -->
+                <img src="data:image/jpeg;base64,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" height="100%" width="100%">
+            </div>
+            <div class="lg:w-1/2 bg-white p-8 md:p-12 rounded-2xl shadow-lg border border-blue-100">
+                <h3 class="text-3xl font-bold text-[#1E4070] mb-6 text-center">Drop Your Area Of Concern</h3>
+                <p class="text-gray-700 mb-8 text-center">
+                    Please tell us what questions you have, and our team of experts will get in touch with you shortly.
+                </p>
+                <form class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 text-sm font-semibold mb-2">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Name" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 text-sm font-semibold mb-2">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Email" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-gray-700 text-sm font-semibold mb-2">Phone*</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+61" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="services" class="block text-gray-700 text-sm font-semibold mb-2">Services</label>
+                            <select id="services" name="services" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="">Choose an option</option>
+                                <option value="indian-pcc">Indian PCC</option>
+                                <option value="indian-passport">Indian Passport</option>
+                                <option value="oci-card">OCI Card</option>
+                                <option value="other-services">Other Services</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="how-found-us" class="block text-gray-700 text-sm font-semibold mb-2">How did you find us?</label>
+                            <select id="how-found-us" name="how-found-us" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="">Choose an option</option>
+                                <option value="google">Google Search</option>
+                                <option value="social-media">Social Media</option>
+                                <option value="referral">Referral</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-gray-700 text-sm font-semibold mb-2">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Message" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                    </div>
+                    <button type="submit" class="bg-[#1E4070] text-white px-8 py-3 rounded-full hover:bg-blue-800 transition-colors shadow-lg text-lg font-semibold w-full">SUBMIT</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section (Reused from previous page) -->
+    <footer class="bg-[#1E4070] text-white py-16">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+            <!-- Column 1: About -->
+            <div>
+                <div class="flex items-center mb-4">
+                    <img src="https://placehold.co/40x40/ffffff/1E4070?text=BS" alt="Bharat Suvidha Logo" class="h-10 w-10 mr-3 rounded-full">
+                    <div>
+                        <h3 class="text-xl font-bold">BHARAT SUVIDHA</h3>
+                        <p class="text-xs text-gray-300">HELPING INDIANS OVERSEAS</p>
+                    </div>
+                </div>
+                <p class="text-gray-300 mb-6">
+                    We're here to make your Indian documentation process easy – no appointments, no office visits, all from the comfort of your home.
+                </p>
+                <h4 class="font-semibold text-lg mb-3">Sign Up For Our Newsletter</h4>
+                <div class="flex">
+                    <input type="email" placeholder="Email" class="p-3 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-orange-500 text-gray-800 w-full">
+                    <button class="bg-orange-500 text-white p-3 rounded-r-lg hover:bg-orange-600 transition-colors">Subscribe</button>
+                </div>
+            </div>
+
+            <!-- Column 2: Useful Links -->
+            <div>
+                <h3 class="text-xl font-bold mb-6">Useful Links</h3>
+                <ul class="space-y-3">
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Home</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Blog</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Contact Us</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Privacy Policy</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Terms & Conditions</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Terms of Use</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Services -->
+            <div>
+                <h3 class="text-xl font-bold mb-6">Services</h3>
+                <ul class="space-y-3">
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Indian PCC</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Indian Passport</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">OCI Card</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Indian Visa Services</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Power of Attorney</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">View All Services</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Get In Touch -->
+            <div>
+                <h3 class="text-xl font-bold mb-6">Get In Touch</h3>
+                <ul class="space-y-3">
+                    <li class="flex items-center"><i class="fas fa-phone-alt mr-3 text-orange-400"></i><span>03 7049 0081</span></li>
+                    <li class="flex items-center"><i class="fas fa-envelope mr-3 text-orange-400"></i><span>info@bharatsuvidha.com.au</span></li>
+                    <li class="flex items-center"><i class="fas fa-clock mr-3 text-orange-400"></i><span>Mon-Fri: 10AM - 7PM</span></li>
+                </ul>
+                <div class="flex space-x-4 mt-6">
+                    <a href="#" class="text-white hover:text-orange-400 transition-colors text-2xl"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-white hover:text-orange-400 transition-colors text-2xl"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Disclaimer and Copyright -->
+        <div class="container mx-auto px-4 mt-12 text-center text-gray-400 text-sm">
+            <p class="mb-4">
+                Disclaimer: We are an independent organisation and NOT connected with VFS Global or appointed agent by the Consulate General or High Commission of India Canberra office or Ministry of External Affairs India.
+            </p>
+            <p>
+                Copyright © 2025 Bharat Suvidha | All Rights Reserved
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for FAQ Accordion functionality (retained if needed, though not directly used on this page)
+        document.addEventListener('DOMContentLoaded', function() {
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const icon = this.querySelector('.accordion-icon');
+
+                    // Toggle active class on header
+                    this.classList.toggle('active');
+
+                    // Toggle active class on content for display and animation
+                    if (content.classList.contains('active')) {
+                        content.classList.remove('active');
+                        content.style.maxHeight = '0';
+                        content.style.paddingTop = '0';
+                        content.style.paddingBottom = '0';
+                    } else {
+                        content.classList.add('active');
+                        content.style.maxHeight = content.scrollHeight + 'px'; // Set max-height to content's scrollHeight
+                        content.style.paddingTop = '1.5rem';
+                        content.style.paddingBottom = '1.5rem';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

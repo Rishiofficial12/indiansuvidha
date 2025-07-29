@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bharat Suvidha - Indian Police Clearance Certificate</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            line-height: 1.6;
+        }
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: linear-gradient(90deg, #ffffff, #f0f8ff);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        header.scrolled {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Hero Section with New Background */
+     .hero {
+            background-image:url(https://images.shiksha.com/mediadata/images/articles/1748840285phpwYqDX2.jpeg);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        @keyframes gradientShift {
+            0% { background: linear-gradient(135deg, #1E4070, #4A90E2); }
+            100% { background: linear-gradient(135deg, #4A90E2, #1E4070); }
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('age/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"%3E%3Cpath fill="%231E4070" fill-opacity="0.2" d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,85.3C672,75,768,85,864,106.7C960,128,1056,160,1152,170.7C1248,181,1344,171,1392,165.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"%3E%3C/path%3E%3C/svg%3E');
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: 20px;
+            animation: fadeInUp 1.5s ease-out;
+        }
+        /* Why Us Bubbles with Animation */
+        .why-us-bubble {
+            background: linear-gradient(135deg, #FFC107, #FFCA28);
+            color: #1E4070;
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-align: center;
+            white-space: nowrap;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            position: absolute;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            opacity: 0;
+            animation: fadeInBubble 0.5s ease forwards;
+        }
+        @keyframes fadeInBubble {
+            to { opacity: 1; transform: scale(1); }
+        }
+        .why-us-bubble:hover {
+            transform: scale(1.1);
+        }
+        .why-us-container {
+            position: relative;
+            min-height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .bubble-1 { top: 10%; left: 15%; transform: rotate(-5deg); animation-delay: 0.1s; }
+        .bubble-2 { top: 5%; right: 20%; transform: rotate(10deg); animation-delay: 0.2s; }
+        .bubble-3 { top: 20%; left: 40%; transform: rotate(5deg); animation-delay: 0.3s; }
+        .bubble-4 { bottom: 10%; left: 10%; transform: rotate(7deg); animation-delay: 0.4s; }
+        .bubble-5 { bottom: 5%; right: 15%; transform: rotate(-12deg); animation-delay: 0.5s; }
+        .bubble-6 { bottom: 20%; left: 30%; transform: rotate(-8deg); animation-delay: 0.6s; }
+        .bubble-7 { top: 30%; left: 5%; transform: rotate(3deg); animation-delay: 0.7s; }
+        .bubble-8 { top: 40%; right: 5%; transform: rotate(-6deg); animation-delay: 0.8s; }
+
+        /* Step Icons */
+        .step-icon-container {
+            background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+            border-radius: 50%;
+            padding: 1.2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .step-icon-container:hover {
+            transform: scale(1.1);
+        }
+        .step-number {
+            color: #1E4070;
+            font-size: 3rem;
+            font-weight: 800;
+        }
+
+        /* Testimonial Cards */
+        .testimonial-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* FAQ Accordion */
+        .accordion-header {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #1E4070;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        .accordion-header:hover {
+            background: #f0f8ff;
+            transform: translateY(-2px);
+        }
+        .accordion-content {
+            background: #f0f8ff;
+            padding: 0 1.5rem;
+            border-radius: 0.75rem;
+            margin-top: 0.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out, opacity 0.3s ease-out;
+            opacity: 0;
+        }
+        .accordion-content.active {
+            max-height: 500px;
+            padding: 1.5rem;
+            opacity: 1;
+        }
+        .accordion-icon {
+            transition: transform 0.3s ease;
+        }
+        .accordion-header.active .accordion-icon {
+            transform: rotate(45deg);
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Hide Logo and Start Application */
+        .logo, .start-application {
+            display: none !important;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header Section -->
+    <header class="bg-white shadow-sm py-4">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            <!-- Logo Removed -->
+            <div class="mb-4 md:mb-0"></div>
+
+            <!-- Contact Info -->
+            <div class="hidden lg:flex items-center space-x-6 text-sm text-gray-700">
+                <div class="flex items-center">
+                    <i class="fas fa-envelope text-[#1E4070] mr-2"></i>
+                    <span>Email: info@bharatsuvidha.com.au</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-phone-alt text-[#1E4070] mr-2"></i>
+                    <span>Call Us: 03 7049 0081</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <a href="#" class="text-[#1E4070] hover:text-blue-700" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-[#1E4070] hover:text-blue-700" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-button" class="md:hidden text-[#1E4070] text-3xl focus:outline-none absolute top-4 right-4">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Navigation -->
+            <nav id="main-navigation" class="w-full md:w-auto flex-col md:flex-row items-center md:space-x-6 text-lg font-medium hidden md:flex">
+                <ul class="flex flex-col md:flex-row md:space-x-6 w-full md:w-auto mb-4 md:mb-0">
+                    <li><a href="#" class="block py-2 px-3 rounded-md text-gray-700 hover:text-[#1E4070] hover:bg-gray-100 transition-colors">Home</a></li>
+                    <li class="relative group dropdown-parent">
+                        <a href="#" class="block py-2 px-3 rounded-md text-gray-700 hover:text-[#1E4070] hover:bg-gray-100 transition-colors flex items-center dropdown-toggle">
+                            Indian PCC <i class="fas fa-chevron-down ml-1 text-xs dropdown-arrow"></i>
+                        </a>
+                        <div class="absolute hidden bg-white shadow-lg rounded-md py-2 w-48 z-10 dropdown-menu">
+                            <a href="pcc2.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">PCC for Foreigners</a>
+                            <a href="pcc1.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">PCC for Residents</a>
+                        </div>
+                    </li>
+                    <li class="relative group dropdown-parent">
+                        <a href="#" class="block py-2 px-3 rounded-md text-gray-700 hover:text-[#1E4070] hover:bg-gray-100 transition-colors flex items-center dropdown-toggle">
+                            Indian Passport <i class="fas fa-chevron-down ml-1 text-xs dropdown-arrow"></i>
+                        </a>
+                        <div class="absolute hidden bg-white shadow-lg rounded-md py-2 w-48 z-10 dropdown-menu">
+                            <a href="passport.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Indian Passport</a>
+                            <a href="minor.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Minor Indian Passport Renewal</a>
+                            <a href="newborn.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">New Born Passport</a>
+                            <a href="surender.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Indian Passport Surrender</a>
+                            <a href="lostdamagepassport.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Lost/Damage Indian Passport</a>
+                        </div>
+                    </li>
+                    <li class="relative group dropdown-parent">
+                        <a href="#" class="block py-2 px-3 rounded-md text-gray-700 hover:text-[#1E4070] hover:bg-gray-100 transition-colors flex items-center dropdown-toggle">
+                            OCI Card <i class="fas fa-chevron-down ml-1 text-xs dropdown-arrow"></i>
+                        </a>
+                        <div class="absolute hidden bg-white shadow-lg rounded-md py-2 w-48 z-10 dropdown-menu">
+                            <a href="oci.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Overseas Citizenship of Indian Card</a>
+                            <a href="newoci.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">New OCI Card</a>
+                            <a href="lostdamage.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Lost/Damage OCI Card</a>
+                            <a href="address.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Address-Occupation-changed</a>
+                        </div>
+                    </li>
+                    <li class="relative group dropdown-parent">
+                        <a href="#" class="block py-2 px-3 rounded-md text-gray-700 hover:text-[#1E4070] hover:bg-gray-100 transition-colors flex items-center dropdown-toggle">
+                            Other Services <i class="fas fa-chevron-down ml-1 text-xs dropdown-arrow"></i>
+                        </a>
+                        <div class="absolute hidden bg-white shadow-lg rounded-md py-2 w-48 z-10 dropdown-menu">
+                            <a href="visa.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Visa Services</a>
+                            <a href="attony.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Power of Attorney</a>
+                            <a href="affadivt.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Affidavit Services</a>
+                            <a href="marriage.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Marriage/Birth Certificate</a>
+                            <a href="driving_licence.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Indian Driver License Verification</a>
+                        </div>
+                    </li>
+                    <li><a href="contact_us.html" class="block py-2 px-3 rounded-md text-gray-700 hover:text-[#1E4070] hover:bg-gray-100 transition-colors">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+        <!-- Hero Section -->
+    <section class="hero relative">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="text-md font-semibold mb-3">BHARAT SUVIDHA</p>
+            <h2 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
+                Indian Police Clearance Certificate
+            </h2>
+            <p class="text-lg md:text-xl mb-8 max-w-md mx-auto">
+             We provide hassle-free Indian PCC assistance through our online portal, ensuring quick processing with no paperwork. Completed documents are delivered straight to your doorstep.
+            </p>
+        </div>
+    </section>
+
+    <!-- Personalised Assistance Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-8 mb-12">
+                <div class="lg:w-1/2 text-center lg:text-left">
+                    <h2 class="text-4xl font-extrabold text-[#1E4070] mb-6">Personalised Assistance For Indian Police Clearance Certificate</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        An <strong>Indian Police Clearance Certificate (PCC)</strong> is a vital document often required for immigration, employment, or higher education overseas. Bharat Suvidha offers <strong>comprehensive online assistance</strong> to help you obtain your PCC seamlessly from Australia. Our experienced team handles all aspects of your application online, ensuring <strong>no office visits are required</strong>. We guide you through the necessary documentation, online form submission, and follow-up, providing <strong>expert assistance</strong> every step of the way. Once your PCC is issued, we ensure <strong>secure doorstep delivery</strong>, saving you time and effort.
+                    </p>
+                </div>
+                <div class="lg:w-1/2 flex justify-center lg:justify-end">
+                    <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Team Assisting with Indian PCC" class="rounded-xl shadow-xl max-w-full h-auto" loading="lazy">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                <div class="bg-white p-8 rounded-2xl shadow-md flex flex-col items-center text-center border border-blue-100">
+                    <div class="bg-[#1E4070] p-4 rounded-full mb-6">
+                        <i class="fas fa-fingerprint text-white text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-[#1E4070] mb-3">Simplified Application</h3>
+                    <p class="text-gray-700 text-lg mb-6">Effortlessly apply for your Indian PCC with our easy online process.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-md flex flex-col items-center text-center border border-blue-100">
+                    <div class="bg-[#1E4070] p-4 rounded-full mb-6">
+                        <i class="fas fa-clipboard-check text-white text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-[#1E4070] mb-3">Expert Document Review</h3>
+                    <p class="text-gray-700 text-lg mb-6">Our team ensures all necessary documents and forms are correctly prepared.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-md flex flex-col items-center text-center border border-blue-100">
+                    <div class="bg-[#1E4070] p-4 rounded-full mb-6">
+                        <i class="fas fa-box-open text-white text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-[#1E4070] mb-3">Secure PCC Delivery</h3>
+                    <p class="text-gray-700 text-lg mb-6">Receive your Indian PCC safely at your doorstep, with tracking.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Helping Indians Overseas Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 flex flex-col lg:flex-row items-center justify-between gap-8">
+            <div class="lg:w-1/2 flex justify-center lg:justify-start mb-8 lg:mb-0">
+                <img src="https://www.bharatsuvidha.com.au/wp-content/uploads/2025/02/Helping-Indians-Overseas-For-Indian-PCC-600x491.jpg" loading="lazy">
+            </div>
+            <div class="lg:w-1/2 text-center lg:text-left">
+                <h2 class="text-4xl font-extrabold text-[#1E4070] mb-6">Helping Indians Overseas For Indian Police Clearance Certificate</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                    At Bharat Suvidha, we’re here to make your documentation process easy and stress-free. Whether it’s Indian PCC, OCI applications, passports, E-visas, or other services like Power of Attorney, birth, or marriage certificates, we’ve got you covered.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                    Whether you’re from the Australian Indian community or a local Aussie, we’re here for you.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    We are an independent organization and NOT connected with VFS Global or appointed agent for The Consulate General or High Commission of India/Canberra office or Ministry of External Affairs India. Our experts not only offer assistance with Indian Documentation but also streamline your process, saving you time and effort. Say goodbye to appointments and unnecessary paperwork—we’ve got all your needs covered in one convenient place.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+   <div class="elementor-element elementor-element-88d4023 e-flex e-con-boxed e-con e-parent e-lazyloaded" data-id="88d4023" data-element_type="container">
+		<div class="e-con-inner">
+		<div class="elementor-element elementor-element-202859d e-con-full e-flex e-con e-child" data-id="202859d" data-element_type="container">
+		<div class="elementor-element elementor-element-38284d2 e-con-full e-flex e-con e-child" data-id="38284d2" data-element_type="container">
+				<div class="elementor-element elementor-element-b0e0775 elementor-widget__width-initial elementor-widget-tablet__width-inherit elementor-widget elementor-widget-heading" data-id="b0e0775" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+									</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-646a53d e-con-full e-flex e-con e-child" data-id="646a53d" data-element_type="container">
+				<div class="elementor-element elementor-element-374fb3c elementor-widget__width-initial elementor-widget-tablet__width-inherit elementor-widget elementor-widget-text-editor" data-id="374fb3c" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+			
+				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-e9bc4f7 e-con-full e-flex e-con e-child" data-id="e9bc4f7" data-element_type="container">
+				<div class="elementor-element elementor-element-01109db elementor-widget elementor-widget-image" data-id="01109db" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+				<img loading="lazy" decoding="async" width="1309" height="497" src="https://www.bharatsuvidha.com.au/wp-content/uploads/2025/02/Group-7.png" class="attachment-full size-full wp-image-4820" alt="Why Choose Us" srcset="https://www.bharatsuvidha.com.au/wp-content/uploads/2025/02/Group-7.png 1309w, https://www.bharatsuvidha.com.au/wp-content/uploads/2025/02/Group-7-300x114.png 300w, https://www.bharatsuvidha.com.au/wp-content/uploads/2025/02/Group-7-1024x389.png 1024w, https://www.bharatsuvidha.com.au/wp-content/uploads/2025/02/Group-7-768x292.png 768w, https://www.bharatsuvidha.com.au/wp-content/uploads/2025/02/Group-7-600x228.png 600w" sizes="(max-width: 1309px) 100vw, 1309px">															</div>
+				</div>
+				</div>
+				</div>
+				</div>
+    <!-- 3 Simple Steps Section -->
+    <section class="py-16 bg-gradient-to-r from-blue-700 to-blue-900 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-8 mb-12">
+                <div class="lg:w-1/2 text-center lg:text-left">
+                    <h2 class="text-4xl font-extrabold mb-4">Indian Police Clearance Certificate In Just 3 Simple Steps</h2>
+                </div>
+                <div class="lg:w-1/2 text-center lg:text-left text-lg leading-relaxed">
+                    At Bharat Suvidha, we make obtaining your Indian Police Clearance Certificate simple and hassle-free. Just share your details, and our experts handle everything online. We ensure smooth processing, prepare your documents, and deliver the PCC straight to your doorstep.
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                <div class="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-md border border-gray-200 text-gray-800">
+                    <div class="step-icon-container bg-blue-100 mb-4">
+                        <span class="step-number text-[#1E4070]">01.</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#1E4070] mb-2">Sign Up & Provide Details</h3>
+                    <p class="text-gray-700 text-sm">Our experts will request your details and necessary documents for the PCC application.</p>
+                </div>
+                <div class="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-md border border-gray-200 text-gray-800">
+                    <div class="step-icon-container bg-blue-100 mb-4">
+                        <span class="step-number text-[#1E4070]">02.</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#1E4070] mb-2">Experts Handle Application</h3>
+                    <p class="text-gray-700 text-sm">Once you share the information, our experts will meticulously fill out the application to ensure accuracy.</p>
+                </div>
+                <div class="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-md border border-gray-200 text-gray-800">
+                    <div class="step-icon-container bg-blue-100 mb-4">
+                        <span class="step-number text-[#1E4070]">03.</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#1E4070] mb-2">Application Lodged</h3>
+                    <p class="text-gray-700 text-sm">After checking the information and completing the form correctly, we will share it with you for submission to the relevant authorities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm font-semibold text-gray-600 mb-2">TESTIMONIAL</p>
+            <h2 class="text-4xl font-extrabold text-[#1E4070] mb-4">What People Say About Us</h2>
+            <p class="text-lg text-gray-700 mb-12">Here's what our happy clients have to say about their experience with us!</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="testimonial-card flex flex-col items-center">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1507208770225-9c715a133e4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80" alt="Madan Lal Sehaj" class="rounded-full mr-3" loading="lazy">
+                        <div>
+                            <p class="font-semibold text-[#1E4070]">Madan Lal Sehaj</p>
+                            <p class="text-xs text-gray-500">27 December 2024</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-500 mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 text-sm mb-4">
+                        I was really worried about getting name change my OCI card, but Bharat Suvidha made the process so simple and fast...
+                    </p>
+                    <a href="#" class="text-[#1E4070] text-sm font-semibold hover:underline">Read more</a>
+                </div>
+                <div class="testimonial-card flex flex-col items-center">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1522556189639-b1509e7e43f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80" alt="Udit Jain" class="rounded-full mr-3" loading="lazy">
+                        <div>
+                            <p class="font-semibold text-[#1E4070]">Udit Jain</p>
+                            <p class="text-xs text-gray-500">24 December 2024</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-500 mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 text-sm mb-4">
+                        Bharat Suvidha helped me with my OCI card, and they made the whole process so simple. I'm very happy with their service!
+                    </p>
+                    <a href="#" class="text-[#1E4070] text-sm font-semibold hover:underline">Read more</a>
+                </div>
+                <div class="testimonial-card flex flex-col items-center">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80" alt="Priya Rana" class="rounded-full mr-3" loading="lazy">
+                        <div>
+                            <p class="font-semibold text-[#1E4070]">Priya Rana</p>
+                            <p class="text-xs text-gray-500">13 December 2024</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-500 mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 text-sm mb-4">
+                        I would like to thank Bharat Suvidha and team for their help in making the passport of our new born baby. They make it in...
+                    </p>
+                    <a href="#" class="text-[#1E4070] text-sm font-semibold hover:underline">Read more</a>
+                </div>
+                <div class="testimonial-card flex flex-col items-center">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1519085360753-afccb1c8e269?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80" alt="Mohit Kaushal" class="rounded-full mr-3" loading="lazy">
+                        <div>
+                            <p class="font-semibold text-[#1E4070]">Mohit Kaushal</p>
+                            <p class="text-xs text-gray-500">3 December 2024</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-500 mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 text-sm mb-4">
+                        I was really happy with the whole process around the renunciation/OCI requirements. Everything was clear smooth a...
+                    </p>
+                    <a href="#" class="text-[#1E4070] text-sm font-semibold hover:underline">Read more</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 flex flex-col lg:flex-row items-start justify-between gap-8">
+            <div class="lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left mb-8 lg:mb-0">
+                <p class="text-sm font-semibold text-gray-600 mb-2">ASKED QUESTIONS</p>
+                <h2 class="text-4xl font-extrabold text-[#1E4070] mb-6">Frequently Asked Questions</h2>
+                <p class="text-lg text-gray-700 mb-8 max-w-lg">
+                    Got questions about Indian Police Clearance Certificates? Check out our FAQs for quick and clear answers to all your queries!
+                </p>
+                <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="FAQ Illustration with Documents" class="rounded-xl shadow-xl max-w-full h-auto" loading="lazy">
+            </div>
+            <div class="lg:w-1/2 w-full max-w-3xl mx-auto space-y-4">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>What is an Indian Police Clearance Certificate (PCC) and why do I need it?</span>
+                        <i class="fas fa-plus accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-700">An Indian PCC is an official document issued by the Indian government, stating that the applicant has no criminal record within India. It is often required for various purposes, including immigration to foreign countries, obtaining a work visa, pursuing higher education abroad, or adopting a child.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>What documents are required to apply for an Indian PCC from Australia?</span>
+                        <i class="fas fa-plus accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-700">Typically, you will need your original Indian passport, proof of current address in Australia, a copy of your visa/residency permit, and photographs. The specific requirements can vary based on your visa type and purpose, and our team will provide a precise checklist.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>How long does it take to get an Indian PCC?</span>
+                        <i class="fas fa-plus accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-700">The processing time for an Indian PCC can vary depending on the Indian High Commission/Consulate's workload and whether police verification is required in India. Generally, it can take several weeks to a couple of months. We will keep you updated on your application status.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Can I apply for an Indian PCC online from overseas?</span>
+                        <i class="fas fa-plus accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-700">Yes, Bharat Suvidha specializes in assisting Non-Resident Indians (NRIs) and foreign nationals with their Indian PCC applications from overseas. Our service is designed to be fully online, minimizing the need for physical visits to any office or embassy.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Is police verification required for PCC applications from Australia?</span>
+                        <i class="fas fa-plus accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="text-gray-700">For PCC applications from overseas, police verification in India may or may not be required, depending on factors like your last residential address in India and the duration since you left. Our experts will assess your case and inform you if police verification is likely needed and guide you through that process.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Blogs Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm font-semibold text-gray-600 mb-2">BLOG & ARTICLE</p>
+            <h2 class="text-4xl font-extrabold text-[#1E4070] mb-4">Latest Blogs & Information</h2>
+            <p class="text-lg text-gray-700 mb-12">Read out the information about the process, the latest updates, and everything you want to know for Indian documentation.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvpHODbCW8NKtaUA5ZNoK18lOgNBU5vr9eHA&s" alt="Indian Birth Certificate" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-6 text-left">
+                        <p class="text-xs text-gray-500 mb-2">Other Articles</p>
+                        <h3 class="text-xl font-bold text-[#1E4070] mb-3">Can NRIs Apply For Indian Birth Certificates From Australia?</h3>
+                        <p class="text-gray-700 text-sm mb-4">
+                            Non-resident Indians (NRIs) often require vital documents such as birth certificates for...
+                        </p>
+                        <p class="text-xs text-gray-500 mb-4"><i class="fas fa-calendar-alt mr-2"></i> October 17, 2024</p>
+                        <a href="#" class="text-[#1E4070] font-semibold hover:underline">Read More</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Birth Certificate Process" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-6 text-left">
+                        <p class="text-xs text-gray-500 mb-2">Other Articles</p>
+                        <h3 class="text-xl font-bold text-[#1E4070] mb-3">Process To Obtain Indian Birth Certificate In Australia</h3>
+                        <p class="text-gray-700 text-sm mb-4">
+                            Did you know that over 700,000 Indian-born people call Australia home?
+                        </p>
+                        <p class="text-xs text-gray-500 mb-4"><i class="fas fa-calendar-alt mr-2"></i> October 17, 2024</p>
+                        <a href="#" class="text-[#1E4070] font-semibold hover:underline">Read More</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Indian Driving License" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-6 text-left">
+                        <p class="text-xs text-gray-500 mb-2">Other Articles</p>
+                        <h3 class="text-xl font-bold text-[#1E4070] mb-3">How Long Does It Take To Verify An Indian Driving Licence Online?</h3>
+                        <p class="text-gray-700 text-sm mb-4">
+                            Verifying your Indian driving license online is a crucial step if you...
+                        </p>
+                        <p class="text-xs text-gray-500 mb-4"><i class="fas fa-calendar-alt mr-2"></i> October 17, 2024</p>
+                        <a href="#" class="text-[#1E4070] font-semibold hover:underline">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Assistance Section -->
+    <section class="py-16 bg-blue-50">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+            <div class="md:w-3/4 text-center md:text-left mb-6 md:mb-0">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-[#1E4070] mb-3">
+                    Assistance For Indian Visa | E-Visa | PCC | Passport | OCI Applications
+                </h2>
+                <p class="text-lg text-gray-700">
+                    We are experts in handling your Indian documentation needs. Don't hesitate to reach out if you want to fasten your documentation process.
+                </p>
+            </div>
+            <div class="md:w-1/4 flex flex-col md:flex-row items-center justify-end space-y-4 md:space-y-0 md:space-x-4">
+                <div class="flex space-x-3">
+                    <a href="#" class="text-[#1E4070] hover:text-blue-700 text-3xl" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-[#1E4070] hover:text-blue-700 text-3xl" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-[#1E4070] text-white py-12">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-1">
+                <div class="flex items-center mb-4">
+                    <!-- Logo Removed -->
+                    <div></div>
+                    <div>
+                        <h4 class="text-xl font-bold">BHARAT SUVIDHA</h4>
+                        <p class="text-xs text-gray-300">HELPING INDIANS OVERSEAS</p>
+                    </div>
+                </div>
+                <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                    We're here to make your Indian documentation process easy—no appointments, no office visits, all from the comfort of your home.
+                </p>
+                <h5 class="text-lg font-semibold mb-3 text-white">Sign Up For Our Newsletter</h5>
+                <form class="flex">
+                    <input type="email" placeholder="Email" class="px-4 py-2 rounded-l-lg focus:outline-none w-full text-gray-800">
+                    <button type="submit" class="bg-orange-400 text-[#1E4070] px-4 py-2 rounded-r-lg hover:bg-orange-500 transition-colors font-semibold">Subscribe</button>
+                </form>
+            </div>
+            <div class="col-span-1 md:col-span-1">
+                <h4 class="text-lg font-semibold mb-4 text-white">Useful Links</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Home</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Blog</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Contact Us</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Privacy Policy</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Terms & Conditions</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Terms of Use</a></li>
+                </ul>
+            </div>
+            <div class="col-span-1 md:col-span-1">
+                <h4 class="text-lg font-semibold mb-4 text-white">Services</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Indian PCC</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Indian Passport</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">OCI Card</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Indian Visa Services</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Power of Attorney</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Affidavit Services</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Marriage/Birth Certificate</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Indian Driver License Verification</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Address/Occupation Changed</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">View All Services</a></li>
+                </ul>
+            </div>
+            <div class="col-span-1 md:col-span-1">
+                <h4 class="text-lg font-semibold mb-4 text-white">Get In Touch</h4>
+                <ul class="space-y-2 text-sm">
+                    <li class="flex items-center">
+                        <i class="fas fa-phone-alt mr-3 text-gray-300"></i>
+                        <span class="text-gray-300">03 7049 0081</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-envelope mr-3 text-gray-300"></i>
+                        <span class="text-gray-300">info@bharatsuvidha.com.au</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-clock mr-3 text-gray-300"></i>
+                        <span class="text-gray-300">Mon-Fri: 10AM - 7PM</span>
+                    </li>
+                </ul>
+                <div class="flex space-x-3 mt-4">
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors text-2xl" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors text-2xl" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="container mx-auto px-4 mt-8 pt-6 border-t border-gray-700 text-center text-sm text-gray-400">
+            <p class="mb-2">We are an independent organization and NOT connected with VFS Global or appointed agent for The Consulate General or High Commission of India/Canberra office or Ministry of External Affairs India.</p>
+            <p>&copy; Copyright 2025 Bharat Suvidha. All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mainNavigation = document.getElementById('main-navigation');
+            const dropdownParents = document.querySelectorAll('.dropdown-parent');
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+            mobileMenuButton.addEventListener('click', function () {
+                mainNavigation.classList.toggle('hidden');
+                mainNavigation.classList.toggle('flex');
+            });
+
+            dropdownParents.forEach(parent => {
+                const toggle = parent.querySelector('.dropdown-toggle');
+                const menu = parent.querySelector('.dropdown-menu');
+                const arrow = parent.querySelector('.dropdown-arrow');
+
+                parent.addEventListener('mouseenter', () => {
+                    if (window.innerWidth >= 768) {
+                        menu.classList.remove('hidden');
+                        arrow.classList.add('rotate-180');
+                    }
+                });
+                parent.addEventListener('mouseleave', () => {
+                    if (window.innerWidth >= 768) {
+                        menu.classList.add('hidden');
+                        arrow.classList.remove('rotate-180');
+                    }
+                });
+
+                toggle.addEventListener('click', function (e) {
+                    if (window.innerWidth < 768) {
+                        e.preventDefault();
+                        menu.classList.toggle('hidden');
+                        arrow.classList.toggle('rotate-180');
+                    }
+                });
+            });
+
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function () {
+                    const content = this.nextElementSibling;
+                    const icon = this.querySelector('.accordion-icon');
+
+                    accordionHeaders.forEach(otherHeader => {
+                        if (otherHeader !== this && otherHeader.classList.contains('active')) {
+                            otherHeader.classList.remove('active');
+                            otherHeader.nextElementSibling.classList.remove('active');
+                            otherHeader.nextElementSibling.style.maxHeight = '0';
+                            otherHeader.nextElementSibling.style.padding = '0 1.5rem';
+                            otherHeader.querySelector('.accordion-icon').classList.remove('rotate-45');
+                        }
+                    });
+
+                    this.classList.toggle('active');
+                    content.classList.toggle('active');
+                    icon.classList.toggle('rotate-45');
+
+                    if (content.classList.contains('active')) {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        content.style.padding = '1.5rem';
+                    } else {
+                        content.style.maxHeight = '0';
+                        content.style.padding = '0 1.5rem';
+                    }
+                });
+            });
+
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 768) {
+                    mainNavigation.classList.remove('hidden');
+                    mainNavigation.classList.add('flex');
+                    document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                        menu.classList.add('hidden');
+                    });
+                    document.querySelectorAll('.dropdown-arrow').forEach(arrow => {
+                        arrow.classList.remove('rotate-180');
+                    });
+                } else {
+                    mainNavigation.classList.add('hidden');
+                    mainNavigation.classList.remove('flex');
+                    document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                        menu.classList.add('hidden');
+                    });
+                    document.querySelectorAll('.dropdown-arrow').forEach(arrow => {
+                        arrow.classList.remove('rotate-180');
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
